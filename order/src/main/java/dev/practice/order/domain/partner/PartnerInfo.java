@@ -6,12 +6,12 @@ import lombok.Getter;
 @Getter
 public class PartnerInfo {
 
-  private Long id;
-  private String partnerToken;
-  private String partnerName;
-  private String businessNo;
-  private String email;
-  private Status status;
+  private final Long id;
+  private final String partnerToken;
+  private final String partnerName;
+  private final String businessNo;
+  private final String email;
+  private final Status status;
 
   public PartnerInfo(Partner partner) {
     this.id = partner.getId();

@@ -1,7 +1,6 @@
 package dev.practice.order.common.util;
 
 import org.apache.commons.lang3.RandomStringUtils;
-import org.apache.commons.lang3.RandomUtils;
 
 public class TokenGenerator {
 

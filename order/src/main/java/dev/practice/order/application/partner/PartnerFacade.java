@@ -21,7 +21,4 @@ public class PartnerFacade {
     notificationService.sendEmail(partnerInfo.getEmail(), "title", "description");
     return partnerInfo;
   }
-
-
-
 }
