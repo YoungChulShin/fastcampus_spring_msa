@@ -14,7 +14,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class AbstractEntity {
 
   @CreationTimestamp
-  private ZonedDateTime createAt;
+  private ZonedDateTime createdAt;
 
   @UpdateTimestamp
   private ZonedDateTime updatedAt;
