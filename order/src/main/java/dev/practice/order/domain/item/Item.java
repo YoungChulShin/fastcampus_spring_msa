@@ -1,21 +1,32 @@
 package dev.practice.order.domain.item;
 
+import com.google.common.collect.Lists;
+import dev.practice.order.common.exception.InvalidParamException;
+import dev.practice.order.common.util.TokenGenerator;
 import dev.practice.order.domain.AbstractEntity;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
 @Entity
 @NoArgsConstructor
 @Table(name = "items")
 public class Item extends AbstractEntity {
+
+  private static final String PREFIX_ITEM = "itm_";
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,6 +35,9 @@ public class Item extends AbstractEntity {
   private Long partnerId;
   private String itemName;
   private Long itemPrice;
+
+  @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "item")
+  private List<ItemOptionGroup> itemOptionGroupList = Lists.newArrayList();
 
   @Enumerated(EnumType.STRING)
   private Status status;
@@ -38,6 +52,19 @@ public class Item extends AbstractEntity {
     private final String description;
   }
 
+  @Builder
+  public Item(Long partnerId, String itemName, Long itemPrice) {
+    if (partnerId == null) throw new InvalidParamException();
+    if (StringUtils.isEmpty(itemName)) throw new InvalidParamException();
+    if (itemPrice == null) throw new InvalidParamException();
+
+    this.itemToken = TokenGenerator.randomCharacterWithPrefix(PREFIX_ITEM);
+    this.partnerId = partnerId;
+    this.itemName = itemName;
+    this.itemPrice = itemPrice;
+    this.status = Status.PREPARE;
+  }
+
   public void changePrepare() {
     this.status = Status.PREPARE;
   }
@@ -49,6 +76,4 @@ public class Item extends AbstractEntity {
   public void changeEndOfSales() {
     this.status = status.END_OF_SALES;
   }
-
-  // 27분
 }
