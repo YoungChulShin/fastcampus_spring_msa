@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -38,6 +39,7 @@ public class ItemOptionGroup extends AbstractEntity {
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "itemOptionGroup", cascade = CascadeType.PERSIST)
   private List<ItemOption> itemOptionList = Lists.newArrayList();
 
+  @Builder
   public ItemOptionGroup(Item item, Integer ordering, String itemOptionGroupName) {
     if (item == null) throw new InvalidParamException("ItemOptionGroup.item");
     if (ordering == null) throw new InvalidParamException("ItemOptionGroup.ordering");

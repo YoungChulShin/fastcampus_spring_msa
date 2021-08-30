@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
@@ -31,6 +32,7 @@ public class ItemOption {
   private String itemOptionName;
   private Long itemOptionPrice;
 
+  @Builder
   public ItemOption(
       ItemOptionGroup itemOptionGroup,
       Integer ordering,
