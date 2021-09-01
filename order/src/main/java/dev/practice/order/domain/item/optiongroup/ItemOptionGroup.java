@@ -37,7 +37,7 @@ public class ItemOptionGroup extends AbstractEntity {
   @JoinColumn(name = "item_id")
   private Item item;
 
-  private Integer Ordering;
+  private Integer ordering;
   private String itemOptionGroupName;
 
   @OneToMany(fetch = FetchType.LAZY, mappedBy = "itemOptionGroup", cascade = CascadeType.PERSIST)
@@ -50,7 +50,7 @@ public class ItemOptionGroup extends AbstractEntity {
     if (StringUtils.isEmpty(itemOptionGroupName)) throw new InvalidParamException("ItemOptionGroup.itemOptionGroupName");
 
     this.item = item;
-    this.Ordering = ordering;
+    this.ordering = ordering;
     this.itemOptionGroupName = itemOptionGroupName;
   }
 }

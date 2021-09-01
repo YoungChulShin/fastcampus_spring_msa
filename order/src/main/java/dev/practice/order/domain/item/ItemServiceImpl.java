@@ -1,14 +1,12 @@
 package dev.practice.order.domain.item;
 
 import dev.practice.order.domain.item.ItemCommand.RegisterItemRequest;
-import dev.practice.order.domain.item.option.ItemOption;
-import dev.practice.order.domain.item.option.ItemOptionStore;
-import dev.practice.order.domain.item.optiongroup.ItemOptionGroup;
-import dev.practice.order.domain.item.optiongroup.ItemOptionGroupStore;
+import dev.practice.order.domain.item.ItemInfo.Main;
 import dev.practice.order.domain.partner.PartnerReader;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Service
@@ -17,9 +15,11 @@ public class ItemServiceImpl implements ItemService {
 
   private final PartnerReader partnerReader;
   private final ItemStore itemStore;
+  private final ItemReader itemReader;
   private final ItemOptionSeriesFactory itemOptionSeriesFactory;
 
   @Override
+  @Transactional
   public String registerItem(RegisterItemRequest command, String partnerToken) {
     var partner = partnerReader.getPartner(partnerToken);
     var initItem = command.toEntity(partner.getId());
@@ -29,18 +29,24 @@ public class ItemServiceImpl implements ItemService {
   }
 
   @Override
+  @Transactional
   public void changeOnSale(String itemToken) {
-
-    // 20:22
+    var item = itemReader.getItemBy(itemToken);
+    item.changeOnSales();
   }
 
   @Override
+  @Transactional
   public void changeEndOfSale(String itemToken) {
-
+    var item = itemReader.getItemBy(itemToken);
+    item.changeEndOfSales();
   }
 
   @Override
-  public void retrieveItemInfo(String itemToken) {
-
+  @Transactional(readOnly = true)
+  public ItemInfo.Main retrieveItemInfo(String itemToken) {
+    var item = itemReader.getItemBy(itemToken);
+    var itemOptionGroupInfoList = itemReader.getItemOptionSeries(item);
+    return new Main(item, itemOptionGroupInfoList);
   }
 }
