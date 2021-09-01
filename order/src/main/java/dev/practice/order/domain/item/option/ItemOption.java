@@ -1,6 +1,7 @@
-package dev.practice.order.domain.item;
+package dev.practice.order.domain.item.option;
 
 import dev.practice.order.common.exception.InvalidParamException;
+import dev.practice.order.domain.item.optiongroup.ItemOptionGroup;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
