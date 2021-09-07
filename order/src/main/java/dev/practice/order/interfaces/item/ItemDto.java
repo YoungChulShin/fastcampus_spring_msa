@@ -1,0 +1,56 @@
+package dev.practice.order.interfaces.item;
+
+import java.util.List;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
+public class ItemDto {
+
+  @Getter
+  @Setter
+  @ToString
+  public static class RegisterItemRequest {
+    private String partnerToken;
+    private String itemName;
+    private Long itemPrice;
+    private List<RegisterItemOptionGroupRequest> itemOptionGroupList;
+  }
+
+  @Getter
+  @Setter
+  @ToString
+  public static class RegisterItemOptionGroupRequest {
+    private Integer ordering;
+    private String itemOptionGroupName;
+    private List<RegisterItemOptionRequest> itemOptionList;
+  }
+
+  @Getter
+  @Setter
+  @ToString
+  public static class RegisterItemOptionRequest {
+    private Integer ordering;
+    private String itemOptionName;
+    private Long itemOptionPrice;
+  }
+
+  @Getter
+  @Builder
+  @ToString
+  public static class RegisterResponse {
+    private final String itemToken;
+  }
+
+  @Getter
+  @Setter
+  @ToString
+  public static class ChangeStatusItemRequest {
+    private String itemToken;
+  }
+
+
+
+
+}
