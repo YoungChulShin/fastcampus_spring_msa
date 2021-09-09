@@ -1,5 +1,6 @@
 package dev.practice.order.interfaces.item;
 
+import dev.practice.order.domain.item.Item;
 import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
@@ -50,7 +51,33 @@ public class ItemDto {
     private String itemToken;
   }
 
+  @Getter
+  @Builder
+  @ToString
+  public static class Main {
+    private String itemToken;
+    private Long partnerId;
+    private String itemName;
+    private Long itemPrice;
+    private Item.Status status;
+    private final List<ItemOptionGroupInfo> itemOptionGroupList;
+  }
 
+  @Getter
+  @Builder
+  @ToString
+  public static class ItemOptionGroupInfo {
+    private final Integer ordering;
+    private final String itemOptionGroupName;
+    private final List<ItemOptionInfo> itemOptionList;
+  }
 
-
+  @Getter
+  @Builder
+  @ToString
+  public static class ItemOptionInfo {
+    private final Integer ordering;
+    private final String itemOptionName;
+    private final Long itemOptionPrice;
+  }
 }
