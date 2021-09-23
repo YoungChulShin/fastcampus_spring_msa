@@ -92,6 +92,7 @@ public class OrderCommand {
   @Builder
   @ToString
   public static class RegisterOrderItemOption {
+
     private final Integer ordering;
     private final String itemOptionName;
     private final Long itemOptionPrice;
@@ -110,6 +111,7 @@ public class OrderCommand {
   @Builder
   @ToString
   public static class PaymentRequest {
+
     private final String orderToken;
     private final Long amount;
     private final PayMethod payMethod;

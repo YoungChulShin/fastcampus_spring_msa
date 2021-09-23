@@ -15,7 +15,8 @@ import org.mapstruct.ReportingPolicy;
 )
 public interface ItemDtoMapper {
 
-  @Mappings({@Mapping(source = "request.itemOptionGroupList", target = "itemOptionGroupRequestList")})
+  @Mappings({
+      @Mapping(source = "request.itemOptionGroupList", target = "itemOptionGroupRequestList")})
   ItemCommand.RegisterItemRequest of(ItemDto.RegisterItemRequest request);
 
   @Mappings({@Mapping(source = "request.itemOptionList", target = "itemOptionRequestList")})

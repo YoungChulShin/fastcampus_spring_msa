@@ -13,6 +13,7 @@ public class ItemDto {
   @Setter
   @ToString
   public static class RegisterItemRequest {
+
     private String partnerToken;
     private String itemName;
     private Long itemPrice;
@@ -23,6 +24,7 @@ public class ItemDto {
   @Setter
   @ToString
   public static class RegisterItemOptionGroupRequest {
+
     private Integer ordering;
     private String itemOptionGroupName;
     private List<RegisterItemOptionRequest> itemOptionList;
@@ -32,6 +34,7 @@ public class ItemDto {
   @Setter
   @ToString
   public static class RegisterItemOptionRequest {
+
     private Integer ordering;
     private String itemOptionName;
     private Long itemOptionPrice;
@@ -41,6 +44,7 @@ public class ItemDto {
   @Builder
   @ToString
   public static class RegisterResponse {
+
     private final String itemToken;
   }
 
@@ -48,6 +52,7 @@ public class ItemDto {
   @Setter
   @ToString
   public static class ChangeStatusItemRequest {
+
     private String itemToken;
   }
 
@@ -55,6 +60,7 @@ public class ItemDto {
   @Builder
   @ToString
   public static class Main {
+
     private String itemToken;
     private Long partnerId;
     private String itemName;
@@ -67,6 +73,7 @@ public class ItemDto {
   @Builder
   @ToString
   public static class ItemOptionGroupInfo {
+
     private final Integer ordering;
     private final String itemOptionGroupName;
     private final List<ItemOptionInfo> itemOptionList;
@@ -76,6 +83,7 @@ public class ItemDto {
   @Builder
   @ToString
   public static class ItemOptionInfo {
+
     private final Integer ordering;
     private final String itemOptionName;
     private final Long itemOptionPrice;

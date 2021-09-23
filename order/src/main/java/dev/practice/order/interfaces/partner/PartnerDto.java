@@ -38,6 +38,7 @@ public class PartnerDto {
   @Getter
   @ToString
   public static class RegisterResponse {
+
     private final String partnerToken;
     private final String partnerName;
     private final String businessNo;

@@ -27,14 +27,25 @@ public class DeliveryFragment {
       String receiverZipcode,
       String receiverAddress1,
       String receiverAddress2,
-      String etcMessage)
-  {
-    if (StringUtils.isEmpty(receiverName)) throw new InvalidParameterException("DeliveryFragment.receiverName");
-    if (StringUtils.isEmpty(receiverPhone)) throw new InvalidParamException("DeliveryFragment receiverPhone");
-    if (StringUtils.isEmpty(receiverZipcode)) throw new InvalidParamException("DeliveryFragment receiverZipcode");
-    if (StringUtils.isEmpty(receiverAddress1)) throw new InvalidParamException("DeliveryFragment receiverAddress1");
-    if (StringUtils.isEmpty(receiverAddress2)) throw new InvalidParamException("DeliveryFragment receiverAddress2");
-    if (StringUtils.isEmpty(etcMessage)) throw new InvalidParamException("DeliveryFragment etcMessage");
+      String etcMessage) {
+    if (StringUtils.isEmpty(receiverName)) {
+      throw new InvalidParameterException("DeliveryFragment.receiverName");
+    }
+    if (StringUtils.isEmpty(receiverPhone)) {
+      throw new InvalidParamException("DeliveryFragment receiverPhone");
+    }
+    if (StringUtils.isEmpty(receiverZipcode)) {
+      throw new InvalidParamException("DeliveryFragment receiverZipcode");
+    }
+    if (StringUtils.isEmpty(receiverAddress1)) {
+      throw new InvalidParamException("DeliveryFragment receiverAddress1");
+    }
+    if (StringUtils.isEmpty(receiverAddress2)) {
+      throw new InvalidParamException("DeliveryFragment receiverAddress2");
+    }
+    if (StringUtils.isEmpty(etcMessage)) {
+      throw new InvalidParamException("DeliveryFragment etcMessage");
+    }
 
     this.receiverName = receiverName;
     this.receiverPhone = receiverPhone;

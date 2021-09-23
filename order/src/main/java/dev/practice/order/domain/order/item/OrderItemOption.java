@@ -37,10 +37,18 @@ public class OrderItemOption extends AbstractEntity {
       Integer ordering,
       String itemOptionName,
       Long itemOptionPrice) {
-    if (orderItemOptionGroup == null) throw new InvalidParamException();
-    if (ordering == null) throw new InvalidParamException();
-    if (StringUtils.isEmpty(itemOptionName)) throw new InvalidParamException();
-    if (itemOptionPrice == null) throw new InvalidParamException();
+    if (orderItemOptionGroup == null) {
+      throw new InvalidParamException();
+    }
+    if (ordering == null) {
+      throw new InvalidParamException();
+    }
+    if (StringUtils.isEmpty(itemOptionName)) {
+      throw new InvalidParamException();
+    }
+    if (itemOptionPrice == null) {
+      throw new InvalidParamException();
+    }
 
     this.orderItemOptionGroup = orderItemOptionGroup;
     this.ordering = ordering;

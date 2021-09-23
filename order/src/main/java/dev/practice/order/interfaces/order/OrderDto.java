@@ -47,6 +47,7 @@ public class OrderDto {
   @Setter
   @ToString
   public static class RegisterOrderItemRequest {
+
     @NotNull(message = "orderCount 는 필수값입니다")
     private Integer orderCount;
 
@@ -66,6 +67,7 @@ public class OrderDto {
   @Setter
   @ToString
   public static class RegisterOrderItemOptionGroupRequest {
+
     @NotNull(message = "ordering 는 필수값입니다")
     private Integer ordering;
 
@@ -79,6 +81,7 @@ public class OrderDto {
   @Setter
   @ToString
   public static class RegisterOrderItemOptionRequest {
+
     @NotNull(message = "ordering 는 필수값입니다")
     private Integer ordering;
 
@@ -93,6 +96,7 @@ public class OrderDto {
   @Builder
   @ToString
   public static class RegisterOrderResponse {
+
     private final String orderToken;
   }
 
@@ -100,6 +104,7 @@ public class OrderDto {
   @Setter
   @ToString
   public static class PaymentRequest {
+
     @NotBlank(message = "orderToken 는 필수값입니다")
     private String orderToken;
 
@@ -118,6 +123,7 @@ public class OrderDto {
   @Builder
   @ToString
   public static class Main {
+
     private final String orderToken;
     private final Long userId;
     private final String payMethod;
@@ -133,6 +139,7 @@ public class OrderDto {
   @Builder
   @ToString
   public static class DeliveryInfo {
+
     private final String receiverName;
     private final String receiverPhone;
     private final String receiverZipcode;
@@ -145,6 +152,7 @@ public class OrderDto {
   @Builder
   @ToString
   public static class OrderItem {
+
     private final Integer orderCount;
     private final Long partnerId;
     private final Long itemId;
@@ -160,6 +168,7 @@ public class OrderDto {
   @Builder
   @ToString
   public static class OrderItemOptionGroup {
+
     private final Integer ordering;
     private final String itemOptionGroupName;
     private final List<OrderItemOption> orderItemOptionList;
@@ -169,6 +178,7 @@ public class OrderDto {
   @Builder
   @ToString
   public static class OrderItemOption {
+
     private final Integer ordering;
     private final String itemOptionName;
     private final Long itemOptionPrice;

@@ -71,13 +71,24 @@ public class OrderItem extends AbstractEntity {
       String itemToken,
       Long itemPrice
   ) {
-    if (order == null) throw new InvalidParamException("OrderItemLine.order");
-    if (orderCount == null) throw new InvalidParamException("OrderItemLine.orderCount");
-    if (partnerId == null) throw new InvalidParamException("OrderItemLine.partnerId");
-    if (itemId == null && StringUtils.isEmpty(itemName))
+    if (order == null) {
+      throw new InvalidParamException("OrderItemLine.order");
+    }
+    if (orderCount == null) {
+      throw new InvalidParamException("OrderItemLine.orderCount");
+    }
+    if (partnerId == null) {
+      throw new InvalidParamException("OrderItemLine.partnerId");
+    }
+    if (itemId == null && StringUtils.isEmpty(itemName)) {
       throw new InvalidParamException("OrderItemLine.itemNo and itemName");
-    if (StringUtils.isEmpty(itemToken)) throw new InvalidParamException("OrderItemLine.itemToken");
-    if (itemPrice == null) throw new InvalidParamException("OrderItemLine.itemPrice");
+    }
+    if (StringUtils.isEmpty(itemToken)) {
+      throw new InvalidParamException("OrderItemLine.itemToken");
+    }
+    if (itemPrice == null) {
+      throw new InvalidParamException("OrderItemLine.itemPrice");
+    }
 
     this.order = order;
     this.orderCount = orderCount;

@@ -40,10 +40,18 @@ public class ItemOption {
       String itemOptionName,
       Long itemOptionPrice
   ) {
-    if (itemOptionGroup == null) throw new InvalidParamException("ItemOption.itemOptionGroup");
-    if (ordering == null) throw new InvalidParamException("ItemOption.ordering");
-    if (StringUtils.isBlank(itemOptionName)) throw new InvalidParamException("ItemOption.itemOptionName");
-    if (itemOptionPrice == null) throw new InvalidParamException("ItemOption.itemOptionPrice");
+    if (itemOptionGroup == null) {
+      throw new InvalidParamException("ItemOption.itemOptionGroup");
+    }
+    if (ordering == null) {
+      throw new InvalidParamException("ItemOption.ordering");
+    }
+    if (StringUtils.isBlank(itemOptionName)) {
+      throw new InvalidParamException("ItemOption.itemOptionName");
+    }
+    if (itemOptionPrice == null) {
+      throw new InvalidParamException("ItemOption.itemOptionPrice");
+    }
 
     this.itemOptionGroup = itemOptionGroup;
     this.ordering = ordering;

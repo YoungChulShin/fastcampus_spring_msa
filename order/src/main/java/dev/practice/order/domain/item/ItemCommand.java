@@ -13,6 +13,7 @@ public class ItemCommand {
   @Builder
   @ToString
   public static class RegisterItemRequest {
+
     private final String itemName;
     private final Long itemPrice;
     private final List<RegisterItemOptionGroupRequest> itemOptionGroupRequestList;
@@ -30,6 +31,7 @@ public class ItemCommand {
   @Builder
   @ToString
   public static class RegisterItemOptionGroupRequest {
+
     private final Integer ordering;
     private final String itemOptionGroupName;
     private final List<RegisterItemOptionRequest> itemOptionRequestList;
@@ -47,6 +49,7 @@ public class ItemCommand {
   @Builder
   @ToString
   public static class RegisterItemOptionRequest {
+
     private final Integer ordering;
     private final String itemOptionName;
     private final Long itemOptionPrice;

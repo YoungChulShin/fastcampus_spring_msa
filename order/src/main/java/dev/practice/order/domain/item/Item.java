@@ -56,9 +56,15 @@ public class Item extends AbstractEntity {
 
   @Builder
   public Item(Long partnerId, String itemName, Long itemPrice) {
-    if (partnerId == null) throw new InvalidParamException();
-    if (StringUtils.isEmpty(itemName)) throw new InvalidParamException();
-    if (itemPrice == null) throw new InvalidParamException();
+    if (partnerId == null) {
+      throw new InvalidParamException();
+    }
+    if (StringUtils.isEmpty(itemName)) {
+      throw new InvalidParamException();
+    }
+    if (itemPrice == null) {
+      throw new InvalidParamException();
+    }
 
     this.itemToken = TokenGenerator.randomCharacterWithPrefix(PREFIX_ITEM);
     this.partnerId = partnerId;

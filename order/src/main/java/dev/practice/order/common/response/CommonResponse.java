@@ -21,7 +21,7 @@ public class CommonResponse<T> {
   }
 
   public static <T> CommonResponse<T> success(T data, String message) {
-    return (CommonResponse<T>)CommonResponse.builder()
+    return (CommonResponse<T>) CommonResponse.builder()
         .result(Result.SUCCESS)
         .data(data)
         .message(message)

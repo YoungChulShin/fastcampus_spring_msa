@@ -74,9 +74,15 @@ public class Order extends AbstractEntity {
       String payMethod,
       DeliveryFragment deliveryFragment
   ) {
-    if (userId == null) throw new InvalidParameterException("Order.userId");
-    if (StringUtils.isEmpty(payMethod)) throw new InvalidParameterException("Order.payMethod");
-    if (deliveryFragment == null) throw new InvalidParameterException("Order.deliveryFragment");
+    if (userId == null) {
+      throw new InvalidParameterException("Order.userId");
+    }
+    if (StringUtils.isEmpty(payMethod)) {
+      throw new InvalidParameterException("Order.payMethod");
+    }
+    if (deliveryFragment == null) {
+      throw new InvalidParameterException("Order.deliveryFragment");
+    }
 
     this.orderToken = TokenGenerator.randomCharacterWithPrefix(ORDER_PREFIX);
     this.userId = userId;
@@ -87,8 +93,7 @@ public class Order extends AbstractEntity {
   }
 
   /**
-   * 주문 가격 = 주문 상품의 총 합
-   * 주문 하나의 상품의 가격 = (상품 가격 + 옵션 가격) * 주문 수량
+   * 주문 가격 = 주문 상품의 총 합 주문 하나의 상품의 가격 = (상품 가격 + 옵션 가격) * 주문 수량
    */
   public Long calculateTotalAmount() {
     return orderItemList.stream()
@@ -97,7 +102,9 @@ public class Order extends AbstractEntity {
   }
 
   public void orderComplete() {
-    if (this.status != Status.INIT) throw new IllegalStatusException();
+    if (this.status != Status.INIT) {
+      throw new IllegalStatusException();
+    }
     this.status = Status.ORDER_COMPLETE;
   }
 

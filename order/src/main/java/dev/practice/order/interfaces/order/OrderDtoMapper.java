@@ -19,7 +19,8 @@ public interface OrderDtoMapper {
 
   OrderCommand.RegisterOrderItem of(OrderDto.RegisterOrderItemRequest request);
 
-  OrderCommand.RegisterOrderItemOptionGroup of(OrderDto.RegisterOrderItemOptionGroupRequest request);
+  OrderCommand.RegisterOrderItemOptionGroup of(
+      OrderDto.RegisterOrderItemOptionGroupRequest request);
 
   OrderCommand.RegisterOrderItemOption of(OrderDto.RegisterOrderItemOptionRequest request);
 

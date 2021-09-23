@@ -31,14 +31,16 @@ public class ItemApiController {
   }
 
   @PostMapping("/change-on-sales")
-  public CommonResponse changeOnSaleItem(@RequestBody @Valid ItemDto.ChangeStatusItemRequest request) {
+  public CommonResponse changeOnSaleItem(
+      @RequestBody @Valid ItemDto.ChangeStatusItemRequest request) {
     var itemToken = request.getItemToken();
     itemFacade.changeOnSale(itemToken);
     return CommonResponse.success("OK");
   }
 
   @PostMapping("/change-end-of-sales")
-  public CommonResponse changeEndOfSaleItem(@RequestBody @Valid ItemDto.ChangeStatusItemRequest request) {
+  public CommonResponse changeEndOfSaleItem(
+      @RequestBody @Valid ItemDto.ChangeStatusItemRequest request) {
     var itemToken = request.getItemToken();
     itemFacade.changeEndOfSale(itemToken);
     return CommonResponse.success("OK");

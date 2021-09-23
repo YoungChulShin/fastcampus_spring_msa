@@ -12,6 +12,7 @@ public class ItemInfo {
   @Getter
   @ToString
   public static class Main {
+
     private final String itemToken;
     private final Long partnerId;
     private final String itemName;
@@ -37,7 +38,8 @@ public class ItemInfo {
     private final String itemOptionGroupName;
     private final List<ItemOptionInfo> itemOptionList;
 
-    public ItemOptionGroupInfo(ItemOptionGroup itemOptionGroup, List<ItemOptionInfo> itemOptionList) {
+    public ItemOptionGroupInfo(ItemOptionGroup itemOptionGroup,
+        List<ItemOptionInfo> itemOptionList) {
       this.ordering = itemOptionGroup.getOrdering();
       this.itemOptionGroupName = itemOptionGroup.getItemOptionGroupName();
       this.itemOptionList = itemOptionList;

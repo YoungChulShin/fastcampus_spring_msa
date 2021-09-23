@@ -15,11 +15,21 @@ public class ItemStoreImpl implements ItemStore {
 
   @Override
   public Item store(Item initItem) {
-    if (StringUtils.isEmpty(initItem.getItemToken())) throw new InvalidParamException("Item.itemToken");
-    if (StringUtils.isEmpty(initItem.getItemName())) throw new InvalidParamException("Item.itemName");
-    if (initItem.getPartnerId() == null) throw new InvalidParamException("Item.partnerId");
-    if (initItem.getItemPrice() == null) throw new InvalidParamException("Item.itemPrice");
-    if (initItem.getStatus() == null) throw new InvalidParamException("Item.status");
+    if (StringUtils.isEmpty(initItem.getItemToken())) {
+      throw new InvalidParamException("Item.itemToken");
+    }
+    if (StringUtils.isEmpty(initItem.getItemName())) {
+      throw new InvalidParamException("Item.itemName");
+    }
+    if (initItem.getPartnerId() == null) {
+      throw new InvalidParamException("Item.partnerId");
+    }
+    if (initItem.getItemPrice() == null) {
+      throw new InvalidParamException("Item.itemPrice");
+    }
+    if (initItem.getStatus() == null) {
+      throw new InvalidParamException("Item.status");
+    }
 
     return itemRepository.save(initItem);
   }

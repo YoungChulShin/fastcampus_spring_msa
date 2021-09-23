@@ -12,6 +12,7 @@ public class OrderInfo {
   @Builder
   @ToString
   public static class Main {
+
     private final Long orderId;
     private final String orderToken;
     private final Long userId;
@@ -28,6 +29,7 @@ public class OrderInfo {
   @Builder
   @ToString
   public static class DeliveryInfo {
+
     private final String receiverName;
     private final String receiverPhone;
     private final String receiverZipcode;
@@ -40,6 +42,7 @@ public class OrderInfo {
   @Builder
   @ToString
   public static class OrderItem {
+
     private final Integer orderCount;
     private final Long partnerId;
     private final Long itemId;
@@ -55,6 +58,7 @@ public class OrderInfo {
   @Builder
   @ToString
   public static class OrderItemOptionGroup {
+
     private final Integer ordering;
     private final String itemOptionGroupName;
     private final List<OrderItemOption> orderItemOptionList;
@@ -64,6 +68,7 @@ public class OrderInfo {
   @Builder
   @ToString
   public static class OrderItemOption {
+
     private final Integer ordering;
     private final String itemOptionName;
     private final Long itemOptionPrice;
