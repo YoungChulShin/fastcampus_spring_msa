@@ -13,6 +13,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -82,6 +83,7 @@ public class Gift extends AbstractEntity {
     private final String description;
   }
 
+  @Builder
   public Gift(
       Long buyerUserId,
       String orderToken,

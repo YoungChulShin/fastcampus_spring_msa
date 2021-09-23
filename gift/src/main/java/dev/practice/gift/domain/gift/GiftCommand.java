@@ -12,13 +12,24 @@ public class GiftCommand {
   @ToString
   public static class Register {
 
-    private final String buyerUserId;
+    private final Long buyerUserId;
     private final String payMethod;
     private final String pushType;
     private final String giftReceiverName;
     private final String giftReceiverPhone;
     private final String giftMessage;
     private final List<RegisterOrderItem> orderItemList;
+
+    public Gift toEntity(String orderToken) {
+      return Gift.builder()
+          .buyerUserId(buyerUserId)
+          .orderToken(orderToken)
+          .pushType(Gift.PushType.valueOf(pushType))
+          .giftReceiverName(giftReceiverName)
+          .giftReceiverPhone(giftReceiverPhone)
+          .giftMessage(giftMessage)
+          .build();
+    }
   }
 
   @Getter
